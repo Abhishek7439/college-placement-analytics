@@ -3,11 +3,11 @@
 -- MySQL Database Schema
 -- ============================================================
 
-CREATE DATABASE IF NOT EXISTS smart_placement
+CREATE DATABASE IF NOT EXISTS college_placement
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
 
-USE smart_placement;
+USE college_placement;
 
 -- ============================================================
 -- 1. admins
