@@ -10,7 +10,7 @@ A full-stack web application for managing, tracking, and visualizing campus plac
 |---|---|
 | **Frontend** | React 18, Vite, React Router v6 |
 | **UI / Charts** | Bootstrap 5, Bootstrap Icons, Chart.js 4 |
-| **Backend** | Python 3, Flask 3.0, Gunicorn |
+| **Backend** | Python 3.11+, Flask 3.0, Gunicorn |
 | **Auth** | JWT (Flask-JWT-Extended), bcrypt |
 | **ORM / DB** | SQLAlchemy, Flask-Migrate, MySQL 8.0 |
 | **Data Processing** | Pandas, NumPy, scikit-learn |
@@ -24,7 +24,7 @@ A full-stack web application for managing, tracking, and visualizing campus plac
 ### 👩‍💼 Admin Portal (JWT Protected)
 - Secure login with bcrypt-hashed passwords
 - Full **CRUD** for Students, Companies, Departments, and Placements
-- **Bulk upload** placement data via CSV / XLSX (Pandas-powered parser)
+- **Bulk upload** placement data via CSV / XLSX (Pandas-powered parser with row-level validation)
 - **PDF report generation** — department, company, yearly, and summary reports
 - Upload history tracking with status (`pending / processed / failed`)
 
@@ -46,7 +46,7 @@ Rule-based plain-English observations generated automatically:
 ## 🗂️ Project Structure
 
 ```
-smart-placement/
+college-placement-analytics/
 ├── backend/                  # Flask API
 │   ├── app/
 │   │   ├── models/           # SQLAlchemy models (Student, Company, Placement …)
@@ -63,6 +63,7 @@ smart-placement/
 │   │   ├── context/          # AuthContext (JWT state)
 │   │   └── api/              # Axios instance + API helpers
 │   └── Dockerfile
+├── sample_data.csv           # 50-student sample CSV for testing uploads
 ├── docker-compose.yml        # Dev / production stack
 ├── docker-compose.prod.yml   # Production overrides
 ├── .env.example              # Environment variable template
@@ -73,23 +74,20 @@ smart-placement/
 
 ## ⚡ Quick Start
 
-### Prerequisites
-- [Docker](https://docs.docker.com/get-docker/) & Docker Compose
+### Option A — Docker (Recommended)
 
-### 1. Clone the repo
-```bash
-git clone <your-repo-url>
-cd smart-placement
-```
+**Prerequisites:** [Docker](https://docs.docker.com/get-docker/) & Docker Compose
 
-### 2. Configure environment
 ```bash
+# 1. Clone the repo
+git clone https://github.com/Ishabharti-og/college-placement-analytics.git
+cd college-placement-analytics
+
+# 2. Configure environment
 cp .env.example .env
-# Edit .env and fill in your secret keys and DB credentials
-```
+# Edit .env — fill in SECRET_KEY, JWT_SECRET_KEY, and DB credentials
 
-### 3. Start all services
-```bash
+# 3. Start all services
 docker compose up --build
 ```
 
@@ -99,10 +97,73 @@ docker compose up --build
 | Backend API | http://localhost:5000/api |
 | MySQL | localhost:3306 |
 
-### 4. Seed the database (first run only)
 ```bash
+# 4. Seed the database (first run only)
 docker compose exec backend python seed.py
 # Default admin → username: admin | password: Admin@1234
+```
+
+---
+
+### Option B — Local Development (without Docker)
+
+**Prerequisites:** Python 3.11+, Node.js 20+, MySQL 8.0 running locally
+
+**Step 1 — Backend**
+```bash
+cd backend
+python -m venv .venv
+
+# Windows
+.venv\Scripts\activate
+# macOS / Linux
+source .venv/bin/activate
+
+pip install -r requirements.txt
+cp .env.example .env        # fill in DATABASE_URL pointing to your local MySQL
+python seed.py              # creates tables + default admin
+python run.py               # Flask starts on http://localhost:5000
+```
+
+**Step 2 — Frontend** *(open a second terminal)*
+```bash
+cd frontend
+npm install
+npm run dev                 # Vite starts on http://localhost:3000
+```
+
+**Step 3 — Open in browser**
+
+| URL | Page |
+|---|---|
+| `http://localhost:3000` | Public analytics dashboard |
+| `http://localhost:3000/admin/login` | Admin login |
+| `http://localhost:3000/admin/dashboard` | Admin panel (after login) |
+
+> The Vite dev server proxies all `/api` requests to `http://localhost:5000` automatically — no extra configuration needed.
+
+---
+
+## 📂 Sample Data
+
+A ready-to-use CSV file with **50 students** across 7 departments is included at [`sample_data.csv`](sample_data.csv).
+
+**To use it:**
+1. Log in to the admin panel
+2. Go to **Upload Data** in the sidebar
+3. First create the departments via **Departments** → Add (or they'll be created automatically if using the seed)
+4. Upload `sample_data.csv`
+5. The public dashboard will immediately show real data
+
+**Required CSV columns:**
+```
+student_name, roll_number, email, department, batch_year,
+company_name, package_lpa, year
+```
+
+**Optional columns:**
+```
+cgpa, sector, location, role, offer_date
 ```
 
 ---
@@ -122,11 +183,12 @@ docker compose exec backend python seed.py
 
 ---
 
-## 🗄️ Database Schema
+## 🗄️ Database
 
-7 tables: `admins` · `departments` · `students` · `companies` · `placements` · `uploaded_files` · `reports`
+**Name:** `college_placement`  
+**Tables (7):** `admins` · `departments` · `students` · `companies` · `placements` · `uploaded_files` · `reports`
 
-The schema is in [`backend/schema.sql`](backend/schema.sql) and is automatically applied when the MySQL container starts for the first time.
+The schema is in [`backend/schema.sql`](backend/schema.sql) and is automatically applied when the MySQL Docker container starts for the first time.
 
 ---
 
@@ -140,28 +202,6 @@ The schema is in [`backend/schema.sql`](backend/schema.sql) and is automatically
 | CORS | Configurable origin whitelist via `CORS_ORIGINS` env var |
 | File uploads | Extension whitelist (`.csv`, `.xlsx`), 32 MB max |
 | Production | Startup assertions block weak default secret keys |
-
----
-
-## 🛠️ Local Development (without Docker)
-
-**Backend**
-```bash
-cd backend
-python -m venv .venv && .venv\Scripts\activate   # Windows
-pip install -r requirements.txt
-cp .env.example .env                              # fill in DATABASE_URL
-python seed.py                                    # create tables + admin
-python run.py                                     # starts Flask on :5000
-```
-
-**Frontend**
-```bash
-cd frontend
-npm install
-cp .env.example .env                              # set VITE_API_URL
-npm run dev                                       # starts Vite on :5173
-```
 
 ---
 
