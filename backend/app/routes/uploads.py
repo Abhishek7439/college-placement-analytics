@@ -8,6 +8,7 @@ from ..extensions import db
 from ..models.uploaded_file import UploadedFile
 from ..utils.decorators import admin_required
 from ..utils.csv_parser import process_file
+from ..utils.mfda_service import invalidate_students_cache
 
 uploads_bp = Blueprint("uploads", __name__)
 
@@ -82,6 +83,7 @@ def upload_file():
         else "processed"
     )
     db.session.commit()
+    invalidate_students_cache()
 
     return jsonify({
         "upload":    record.to_dict(),

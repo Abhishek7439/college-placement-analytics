@@ -1,4 +1,5 @@
-export default function Loader({ text = "Loading data…" }) {
+export default function Loader({ text, message }) {
+  const label = message || text || "Loading data…";
   return (
     <div
       style={{
@@ -21,7 +22,7 @@ export default function Loader({ text = "Loading data…" }) {
         }}
       />
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-      <span style={{ fontSize: 13, color: "#64748b" }}>{text}</span>
+      <span style={{ fontSize: 13, color: "#64748b" }}>{label}</span>
     </div>
   );
 }

@@ -24,7 +24,7 @@ def generate_report():
         return jsonify({"error": "title and report_type are required"}), 400
 
     admin_id = int(get_jwt_identity())
-    reports_folder = current_app.config["REPORTS_FOLDER"]
+    reports_folder = os.path.abspath(current_app.config["REPORTS_FOLDER"])
     os.makedirs(reports_folder, exist_ok=True)
 
     report = Report(
@@ -38,7 +38,7 @@ def generate_report():
 
     try:
         file_path = generate_pdf_report(report, reports_folder)
-        report.file_path = file_path
+        report.file_path = os.path.abspath(file_path)
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": f"Report generation failed: {str(e)}"}), 500
@@ -51,6 +51,27 @@ def generate_report():
 @admin_required
 def download_report(report_id):
     report = Report.query.get_or_404(report_id)
-    if not report.file_path or not os.path.exists(report.file_path):
+    if not report.file_path:
         return jsonify({"error": "Report file not found"}), 404
-    return send_file(report.file_path, as_attachment=True)
+
+    # Resolve absolute path
+    abs_path = os.path.abspath(report.file_path)
+    if not os.path.exists(abs_path):
+        # Fallback check inside REPORTS_FOLDER
+        reports_folder = os.path.abspath(current_app.config["REPORTS_FOLDER"])
+        candidate = os.path.join(reports_folder, os.path.basename(report.file_path))
+        if os.path.exists(candidate):
+            abs_path = candidate
+        else:
+            return jsonify({"error": f"Report file not found on server at {report.file_path}"}), 404
+
+    safe_title = "".join(c for c in (report.title or "report") if c.isalnum() or c in (" ", "_", "-")).strip().replace(" ", "_")
+    download_filename = f"{safe_title}.pdf" if not safe_title.endswith(".pdf") else safe_title
+
+    return send_file(
+        abs_path,
+        mimetype="application/pdf",
+        as_attachment=True,
+        download_name=download_filename,
+    )
+

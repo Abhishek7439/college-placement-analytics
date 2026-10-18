@@ -67,6 +67,17 @@ export default function MFDALab() {
   async function fetchAllData() {
     setLoading(true);
     setError(null);
+
+    // 1. Kick off primary descriptive & linear algebra tab to unlock UI immediately
+    getMFDADescriptiveLinearAlgebra()
+      .then((res) => {
+        setDescData(res.data);
+        setLoading(false);
+      })
+      .catch((e) => {
+        console.warn("Primary MFDA tab fetch delayed/failed:", e);
+      });
+
     try {
       const results = await Promise.allSettled([
         getMFDADescriptiveLinearAlgebra(),
@@ -93,7 +104,6 @@ export default function MFDALab() {
         setError("Could not connect to MFDA backend. Please ensure backend server is running.");
       }
 
-      // Initial prediction
       handlePredict();
     } catch (err) {
       console.error("Failed to load MFDA Lab data:", err);

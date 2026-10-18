@@ -16,6 +16,8 @@ Implements all 8 MFDA Course Outcomes / Practicals:
 from __future__ import annotations
 
 import math
+import time
+from sqlalchemy.orm import joinedload
 import numpy as np
 import pandas as pd
 from scipy import stats
@@ -31,12 +33,34 @@ from ..models.department import Department
 from ..models.company import Company
 
 
+_CACHED_STUDENTS_DF = None
+_CACHED_STUDENTS_TS = 0
+_CACHE_TTL = 30.0  # In-memory cache for 30s to allow parallel requests to share the dataframe
+
+
+def invalidate_students_cache():
+    global _CACHED_STUDENTS_DF, _CACHED_STUDENTS_TS
+    _CACHED_STUDENTS_DF = None
+    _CACHED_STUDENTS_TS = 0
+
+
 def _get_students_dataframe() -> pd.DataFrame:
-    """Fetch students with placements and departments as a cleaned Pandas DataFrame."""
-    students = Student.query.all()
+    """Fetch students with placements and departments using joinedload and short TTL caching."""
+    global _CACHED_STUDENTS_DF, _CACHED_STUDENTS_TS
+    now = time.time()
+    if _CACHED_STUDENTS_DF is not None and (now - _CACHED_STUDENTS_TS) < _CACHE_TTL:
+        return _CACHED_STUDENTS_DF.copy()
+
+    students = (
+        Student.query
+        .options(
+            joinedload(Student.placements).joinedload(Placement.company),
+            joinedload(Student.department)
+        )
+        .all()
+    )
     rows = []
     for s in students:
-        # Check first placement if any
         placement = s.placements[0] if s.placements else None
         pkg = float(placement.package_lpa) if placement else None
         comp_name = placement.company.name if placement and placement.company else None
@@ -60,8 +84,12 @@ def _get_students_dataframe() -> pd.DataFrame:
             "package_lpa": pkg,
             "company": comp_name,
             "role": role,
+            "offer_count": len(s.placements),
         })
-    return pd.DataFrame(rows)
+    df = pd.DataFrame(rows)
+    _CACHED_STUDENTS_DF = df
+    _CACHED_STUDENTS_TS = now
+    return df.copy()
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -296,7 +324,7 @@ def get_distribution_analysis() -> dict:
 
     # 3. Discrete: Poisson Distribution (Placement Offers per Student)
     # Estimate lambda = average number of offers
-    offers_per_student = [len(s.placements) for s in Student.query.all()]
+    offers_per_student = df["offer_count"].tolist() if "offer_count" in df.columns else [1 if p == 1 else 0 for p in df["is_placed"]]
     lam = float(np.mean(offers_per_student)) if offers_per_student else 1.0
     poisson_k = list(range(6))
     poisson_pmf = [round(float(stats.poisson.pmf(k, lam)), 4) for k in poisson_k]
@@ -375,12 +403,10 @@ def get_sampling_and_clt(sample_size: int = 30, num_samples: int = 500) -> dict:
     strat_error = round(abs(strat_mean - pop_mean), 2)
 
     # 3. Central Limit Theorem Simulation
-    # Repeatedly draw samples of size n from population and calculate means
+    # Vectorized drawing of num_samples batches of size n simultaneously
     n = max(3, min(sample_size, 50))
-    sample_means = []
-    for _ in range(num_samples):
-        batch = np.random.choice(pop, size=n, replace=True)
-        sample_means.append(float(np.mean(batch)))
+    samples_matrix = np.random.choice(pop, size=(num_samples, n), replace=True)
+    sample_means = np.mean(samples_matrix, axis=1).tolist()
 
     clt_mean = round(float(np.mean(sample_means)), 2)
     clt_std = round(float(np.std(sample_means, ddof=1)), 2)
