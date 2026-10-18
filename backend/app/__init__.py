@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify, send_from_directory
 from .config import get_config
 from .extensions import db, jwt, cors, migrate
 
@@ -35,6 +35,7 @@ def create_app(config_class=None):
     from .routes.analytics   import analytics_bp
     from .routes.uploads     import uploads_bp
     from .routes.reports     import reports_bp
+    from .routes.mfda        import mfda_bp
 
     app.register_blueprint(auth_bp,        url_prefix="/api/auth")
     app.register_blueprint(students_bp,    url_prefix="/api/students")
@@ -44,5 +45,19 @@ def create_app(config_class=None):
     app.register_blueprint(analytics_bp,   url_prefix="/api/analytics")
     app.register_blueprint(uploads_bp,     url_prefix="/api/upload")
     app.register_blueprint(reports_bp,     url_prefix="/api/reports")
+    app.register_blueprint(mfda_bp,        url_prefix="/api/mfda")
+
+    # Serve React SPA in production if frontend/dist exists
+    frontend_dist = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist"))
+    if os.path.exists(frontend_dist):
+        @app.route("/", defaults={"path": ""})
+        @app.route("/<path:path>")
+        def serve_spa(path):
+            if path.startswith("api"):
+                return jsonify({"error": "Endpoint not found"}), 404
+            target = os.path.join(frontend_dist, path)
+            if path and os.path.exists(target) and os.path.isfile(target):
+                return send_from_directory(frontend_dist, path)
+            return send_from_directory(frontend_dist, "index.html")
 
     return app

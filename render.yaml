@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: college-placement-mfda
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "npm --prefix frontend install && npm --prefix frontend run build && pip install -r backend/requirements.txt && cd backend && python seed.py"
+    startCommand: "cd backend && gunicorn wsgi:app"
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        value: sqlite:///smart_placement.db
+      - key: CORS_ORIGINS
+        value: "*"

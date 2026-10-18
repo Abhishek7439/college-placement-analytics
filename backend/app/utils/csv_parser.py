@@ -158,6 +158,12 @@ def process_file(file_path: str, ext: str) -> dict:
                 role=_str(row, "role"),
                 offer_date=_date(row, "offer_date"),
                 place_year=place_year,
+                technical_score=_float(row, "technical_score"),
+                coding_score=_float(row, "coding_score"),
+                soft_skills_score=_float(row, "soft_skills_score"),
+                internships_count=_int(row, "internships_count"),
+                projects_count=_int(row, "projects_count"),
+                backlogs_count=_int(row, "backlogs_count"),
             )
             stats["inserted"] += inserted
             stats["updated"]  += updated
@@ -193,6 +199,12 @@ def _upsert_row(
     role:         str | None,
     offer_date,
     place_year:   int,
+    technical_score: float | None = None,
+    coding_score: float | None = None,
+    soft_skills_score: float | None = None,
+    internships_count: int | None = None,
+    projects_count: int | None = None,
+    backlogs_count: int | None = None,
 ) -> tuple[int, int]:
     """
     Upsert one row.  Returns (inserted_count, updated_count) where each is
@@ -210,6 +222,12 @@ def _upsert_row(
             department_id=dept_obj.id,
             batch_year=batch_year,
             cgpa=cgpa,
+            technical_score=technical_score if technical_score is not None else 70.0,
+            coding_score=coding_score if coding_score is not None else 65.0,
+            soft_skills_score=soft_skills_score if soft_skills_score is not None else 75.0,
+            internships_count=internships_count if internships_count is not None else 1,
+            projects_count=projects_count if projects_count is not None else 2,
+            backlogs_count=backlogs_count if backlogs_count is not None else 0,
             status="unplaced",
         )
         db.session.add(student)
@@ -222,6 +240,18 @@ def _upsert_row(
         student.batch_year    = batch_year
         if cgpa is not None:
             student.cgpa = cgpa
+        if technical_score is not None:
+            student.technical_score = technical_score
+        if coding_score is not None:
+            student.coding_score = coding_score
+        if soft_skills_score is not None:
+            student.soft_skills_score = soft_skills_score
+        if internships_count is not None:
+            student.internships_count = internships_count
+        if projects_count is not None:
+            student.projects_count = projects_count
+        if backlogs_count is not None:
+            student.backlogs_count = backlogs_count
 
     # Company — upsert by name
     company = Company.query.filter_by(name=company_name).first()

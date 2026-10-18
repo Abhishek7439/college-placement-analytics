@@ -205,9 +205,20 @@ docker compose exec backend /bin/sh
 
 ## 6. Deploy to Render
 
-Render can run two separate services (backend Web Service + static site) or you can use a single Docker service.
+### Option 0 — Single Web Service (Free Tier, All-in-One — Fastest & 100% Free)
+The repository includes a ready-to-use [`render.yaml`](render.yaml) blueprint and automatic SPA serving. You can deploy the full frontend and backend together on a single Render free web service!
 
-### Option A — Docker Service (Recommended)
+1. Push your repository to **GitHub**.
+2. Go to [dashboard.render.com](https://dashboard.render.com) → **New → Blueprint**.
+3. Connect your GitHub repository. Render will automatically detect [`render.yaml`](render.yaml).
+4. Click **Apply**.
+   - Render automatically runs the build: `npm install && npm run build` (building React SPA) and `pip install -r requirements.txt && python seed.py`.
+   - Starts Gunicorn serving both the API at `/api/*` and the React frontend on the root URL!
+5. Your app is immediately live at `https://your-service-name.onrender.com`!
+
+---
+
+### Option A — Docker Service
 
 #### Step 1 — Backend Web Service
 

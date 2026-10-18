@@ -8,6 +8,7 @@ import Dashboard from "../pages/public/Dashboard";
 import DepartmentAnalytics from "../pages/public/DepartmentAnalytics";
 import CompanyAnalytics from "../pages/public/CompanyAnalytics";
 import YearlyTrends from "../pages/public/YearlyTrends";
+import MFDALab from "../pages/public/MFDALab";
 
 // Admin pages
 import AdminLogin from "../pages/admin/Login";
@@ -25,6 +26,7 @@ export default function AppRoutes() {
       {/* Public routes */}
       <Route element={<PublicLayout />}>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/mfda" element={<MFDALab />} />
         <Route path="/departments" element={<DepartmentAnalytics />} />
         <Route path="/companies" element={<CompanyAnalytics />} />
         <Route path="/trends" element={<YearlyTrends />} />
@@ -43,6 +45,7 @@ export default function AppRoutes() {
       >
         <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
         <Route path="/admin/dashboard"   element={<AdminDashboard />} />
+        <Route path="/admin/mfda"        element={<MFDALab />} />
         <Route path="/admin/departments" element={<Departments />} />
         <Route path="/admin/students"    element={<Students />} />
         <Route path="/admin/companies" element={<Companies />} />

@@ -1,51 +1,90 @@
-student_name,roll_number,email,department,batch_year,cgpa,company_name,sector,location,package_lpa,role,offer_date,year
-Aarav Sharma,CSE2021001,aarav.sharma@college.edu,Computer Science,2021,8.9,TCS,IT,Mumbai,7.5,Software Engineer,2024-04-10,2024
-Priya Patel,CSE2021002,priya.patel@college.edu,Computer Science,2021,9.2,Infosys,IT,Bangalore,8.0,Systems Engineer,2024-04-12,2024
-Rohit Verma,CSE2021003,rohit.verma@college.edu,Computer Science,2021,7.8,Wipro,IT,Hyderabad,6.5,Developer,2024-04-15,2024
-Sneha Gupta,CSE2021004,sneha.gupta@college.edu,Computer Science,2021,9.5,Google,IT,Bangalore,32.0,Software Engineer,2024-03-20,2024
-Karan Mehta,CSE2021005,karan.mehta@college.edu,Computer Science,2021,8.1,Amazon,IT,Hyderabad,28.5,SDE-1,2024-03-25,2024
-Ananya Singh,CSE2021006,ananya.singh@college.edu,Computer Science,2021,8.7,Microsoft,IT,Hyderabad,25.0,Software Engineer,2024-03-28,2024
-Vikram Rao,CSE2021007,vikram.rao@college.edu,Computer Science,2021,7.5,HCL,IT,Noida,5.5,Junior Developer,2024-04-18,2024
-Pooja Joshi,CSE2021008,pooja.joshi@college.edu,Computer Science,2021,9.0,Adobe,IT,Noida,18.0,Software Engineer,2024-04-05,2024
-Arjun Nair,IT2021001,arjun.nair@college.edu,Information Technology,2021,8.3,Capgemini,IT,Pune,7.0,Analyst,2024-04-22,2024
-Divya Menon,IT2021002,divya.menon@college.edu,Information Technology,2021,8.8,Accenture,IT,Bangalore,9.5,Associate,2024-04-10,2024
-Suresh Kumar,IT2021003,suresh.kumar@college.edu,Information Technology,2021,7.2,Cognizant,IT,Chennai,6.8,Programmer Analyst,2024-04-14,2024
-Neha Agarwal,IT2021004,neha.agarwal@college.edu,Information Technology,2021,9.1,Flipkart,IT,Bangalore,22.0,SDE-1,2024-03-30,2024
-Rahul Bose,IT2021005,rahul.bose@college.edu,Information Technology,2021,8.0,Zoho,IT,Chennai,10.0,Software Developer,2024-04-08,2024
-Meera Pillai,IT2021006,meera.pillai@college.edu,Information Technology,2021,8.5,IBM,IT,Bangalore,12.0,Associate Developer,2024-04-11,2024
-Aditya Tiwari,IT2021007,aditya.tiwari@college.edu,Information Technology,2021,7.6,Mphasis,IT,Pune,6.5,Software Engineer,2024-04-20,2024
-Kavya Reddy,ECE2021001,kavya.reddy@college.edu,Electronics,2021,8.4,Qualcomm,IT,Hyderabad,18.5,VLSI Engineer,2024-04-02,2024
-Sanjay Iyer,ECE2021002,sanjay.iyer@college.edu,Electronics,2021,8.9,Intel,IT,Bangalore,22.0,Hardware Engineer,2024-03-28,2024
-Preethi Raj,ECE2021003,preethi.raj@college.edu,Electronics,2021,7.9,Samsung,IT,Noida,14.0,Embedded Engineer,2024-04-06,2024
-Nikhil Desai,ECE2021004,nikhil.desai@college.edu,Electronics,2021,9.3,Texas Instruments,IT,Bangalore,20.0,Systems Engineer,2024-03-22,2024
-Rishika Shah,ECE2021005,rishika.shah@college.edu,Electronics,2021,8.1,L&T Technology,IT,Mumbai,9.0,Graduate Engineer,2024-04-16,2024
-Tanmay Kulkarni,ECE2021006,tanmay.kulkarni@college.edu,Electronics,2021,7.4,Bosch,IT,Pune,8.5,Associate Engineer,2024-04-18,2024
-Ishaan Mishra,ECE2021007,ishaan.mishra@college.edu,Electronics,2021,8.6,Siemens,IT,Bangalore,11.0,Embedded Developer,2024-04-09,2024
-Aparna Das,MECH2021001,aparna.das@college.edu,Mechanical,2021,7.8,Tata Motors,Manufacturing,Mumbai,7.0,Graduate Engineer Trainee,2024-04-25,2024
-Gaurav Singh,MECH2021002,gaurav.singh@college.edu,Mechanical,2021,8.2,Mahindra,Manufacturing,Pune,7.5,Design Engineer,2024-04-20,2024
-Shreya Banerjee,MECH2021003,shreya.banerjee@college.edu,Mechanical,2021,7.5,Larsen Toubro,Manufacturing,Mumbai,8.0,Site Engineer,2024-04-22,2024
-Rishi Pandey,MECH2021004,rishi.pandey@college.edu,Mechanical,2021,8.7,Cummins,Manufacturing,Pune,9.5,Applications Engineer,2024-04-10,2024
-Nandini Ghosh,MECH2021005,nandini.ghosh@college.edu,Mechanical,2021,9.0,Caterpillar,Manufacturing,Bangalore,12.0,Graduate Engineer,2024-04-05,2024
-Saurabh Jain,MECH2021006,saurabh.jain@college.edu,Mechanical,2021,7.1,BHEL,Manufacturing,Hyderabad,6.5,Engineer Trainee,2024-04-28,2024
-Priyanka Yadav,MECH2021007,priyanka.yadav@college.edu,Mechanical,2021,8.4,Godrej,Manufacturing,Mumbai,8.0,Graduate Engineer,2024-04-15,2024
-Ankit Saxena,CIVIL2021001,ankit.saxena@college.edu,Civil,2021,7.6,DLF,Manufacturing,Delhi,6.5,Site Engineer,2024-04-26,2024
-Rupali Chavan,CIVIL2021002,rupali.chavan@college.edu,Civil,2021,8.1,Shapoorji Pallonji,Manufacturing,Mumbai,7.0,Graduate Engineer,2024-04-24,2024
-Deepak Nambiar,CIVIL2021003,deepak.nambiar@college.edu,Civil,2021,7.9,Larsen Toubro,Manufacturing,Chennai,7.5,Civil Engineer,2024-04-20,2024
-Swathi Rao,CIVIL2021004,swathi.rao@college.edu,Civil,2021,8.5,Tata Projects,Manufacturing,Hyderabad,8.0,Project Engineer,2024-04-12,2024
-Harshit Agarwal,CIVIL2021005,harshit.agarwal@college.edu,Civil,2021,7.3,NCC Limited,Manufacturing,Delhi,6.0,Site Engineer,2024-04-28,2024
-Lakshmi Prasad,EEE2021001,lakshmi.prasad@college.edu,Electrical,2021,8.0,ABB,IT,Bangalore,9.0,Electrical Engineer,2024-04-16,2024
-Rajesh Pillai,EEE2021002,rajesh.pillai@college.edu,Electrical,2021,8.6,Schneider Electric,IT,Mumbai,10.5,Systems Engineer,2024-04-10,2024
-Sunita Sharma,EEE2021003,sunita.sharma@college.edu,Electrical,2021,7.7,Siemens,IT,Bangalore,11.0,Automation Engineer,2024-04-08,2024
-Vinod Thampi,EEE2021004,vinod.thampi@college.edu,Electrical,2021,9.1,NTPC,IT,Delhi,9.5,Graduate Engineer Trainee,2024-04-05,2024
-Meghna Kapoor,EEE2021005,meghna.kapoor@college.edu,Electrical,2021,8.3,Havells,IT,Noida,8.0,Product Engineer,2024-04-18,2024
-Sunil Patil,EEE2021006,sunil.patil@college.edu,Electrical,2021,7.5,CESC,IT,Kolkata,7.5,Junior Engineer,2024-04-22,2024
-Ritika Malhotra,CHEM2021001,ritika.malhotra@college.edu,Chemical,2021,8.8,Reliance Industries,Manufacturing,Mumbai,11.0,Process Engineer,2024-04-04,2024
-Mohit Verma,CHEM2021002,mohit.verma@college.edu,Chemical,2021,8.2,ONGC,Manufacturing,Mumbai,10.0,Graduate Engineer Trainee,2024-04-08,2024
-Pallavi Shetty,CHEM2021003,pallavi.shetty@college.edu,Chemical,2021,7.6,BASF,Manufacturing,Pune,9.5,Process Engineer,2024-04-12,2024
-Ajay Krishnan,CHEM2021004,ajay.krishnan@college.edu,Chemical,2021,9.2,IOCL,Manufacturing,Gujarat,12.0,Trainee Engineer,2024-04-02,2024
-Namrata Bhat,CHEM2021005,namrata.bhat@college.edu,Chemical,2021,8.5,Hindustan Unilever,Manufacturing,Mumbai,13.5,Process Engineer,2024-04-06,2024
-Tejas Kulkarni,CSE2022001,tejas.kulkarni@college.edu,Computer Science,2022,8.7,Deloitte,Consulting,Mumbai,15.0,Analyst,2024-04-14,2024
-Bhavna Nair,CSE2022002,bhavna.nair@college.edu,Computer Science,2022,9.3,PwC,Consulting,Bangalore,16.5,Technology Consultant,2024-04-16,2024
-Rohan Pillai,IT2022001,rohan.pillai@college.edu,Information Technology,2022,8.0,EY,Consulting,Mumbai,14.0,Technology Analyst,2024-04-18,2024
-Simran Kaur,IT2022002,simran.kaur@college.edu,Information Technology,2022,8.4,KPMG,Consulting,Delhi,13.5,IT Analyst,2024-04-20,2024
-Yash Dubey,CSE2022003,yash.dubey@college.edu,Computer Science,2022,7.9,Swiggy,IT,Bangalore,19.0,Backend Engineer,2024-04-22,2024
+student_name,roll_number,email,department,batch_year,cgpa,technical_score,coding_score,soft_skills_score,internships_count,projects_count,backlogs_count,company_name,sector,location,package_lpa,role,offer_date,year
+Kavita Nair,CSE2021001,kavita.nair1@college.edu,Computer Science,2021,8.85,81.7,81.6,88.9,2,3,0,Microsoft,IT,Hyderabad,35.9,Software Engineer,2023-01-07,2023
+Prisha Kapoor,CSE2021002,prisha.kapoor2@college.edu,Computer Science,2021,7.58,71.9,67.6,63.8,1,2,0,TCS,IT,Mumbai,10.62,System Engineer,2023-02-23,2023
+Deepak Das,CSE2021003,deepak.das3@college.edu,Computer Science,2021,8.22,82.9,81.2,72.3,1,2,0,Infosys,IT,Bangalore,11.07,Specialist Programmer,2025-06-15,2025
+Naveen Nair,CSE2021004,naveen.nair4@college.edu,Computer Science,2021,8.97,80.4,65.9,71.2,2,3,0,Adobe,IT,Noida,28.77,Member of Tech Staff,2023-02-25,2023
+Neha Rao,CSE2021005,neha.rao5@college.edu,Computer Science,2021,9.16,72.6,65.0,82.0,2,2,0,Infosys,IT,Bangalore,12.28,Specialist Programmer,2024-06-21,2024
+Ishaan Roy,CSE2021006,ishaan.roy6@college.edu,Computer Science,2021,7.73,71.5,69.8,84.9,1,4,0,Adobe,IT,Noida,24.71,Member of Tech Staff,2025-01-08,2025
+Arjun Mishra,CSE2021007,arjun.mishra7@college.edu,Computer Science,2021,8.09,79.6,85.3,70.6,2,2,0,Oracle,IT,Bangalore,20.59,Cloud Engineer,2025-04-05,2025
+Pooja Menon,CSE2021008,pooja.menon8@college.edu,Computer Science,2021,8.32,86.8,84.1,86.6,2,2,0,Adobe,IT,Noida,27.58,Member of Tech Staff,2023-04-03,2023
+Reyansh Nair,CSE2021009,reyansh.nair9@college.edu,Computer Science,2021,8.54,82.8,76.8,66.2,1,2,0,Oracle,IT,Bangalore,20.22,Cloud Engineer,2025-01-22,2025
+Rudra Dutta,CSE2021010,rudra.dutta10@college.edu,Computer Science,2021,8.31,68.8,63.7,81.6,1,1,0,TCS,IT,Mumbai,11.16,System Engineer,2025-05-04,2025
+Rajesh Kulkarni,CSE2021011,rajesh.kulkarni11@college.edu,Computer Science,2021,8.75,74.6,74.7,83.3,1,4,0,Google,IT,Bangalore,38.22,Software Engineer,2024-01-12,2024
+Meera Iyer,CSE2021012,meera.iyer12@college.edu,Computer Science,2021,9.64,88.1,88.9,74.9,1,1,0,Amazon,IT,Hyderabad,32.61,SDE-1,2024-05-06,2024
+Pooja Chopra,CSE2021013,pooja.chopra13@college.edu,Computer Science,2021,8.81,76.3,76.4,85.7,2,2,0,TCS,IT,Mumbai,12.0,System Engineer,2024-03-15,2024
+Mayank Chauhan,CSE2021014,mayank.chauhan14@college.edu,Computer Science,2021,8.66,83.3,76.4,85.1,1,2,0,Microsoft,IT,Hyderabad,33.79,Software Engineer,2023-01-02,2023
+Nikhil Singh,CSE2021015,nikhil.singh15@college.edu,Computer Science,2021,7.74,76.7,66.0,76.9,2,3,0,Oracle,IT,Bangalore,20.0,Cloud Engineer,2024-04-07,2024
+Dhruv Joshi,IT2021016,dhruv.joshi16@college.edu,Information Technology,2021,7.95,73.1,59.2,84.5,0,3,0,Cisco,IT,Bangalore,19.0,Network Engineer,2024-03-26,2024
+Kabir Iyer,IT2021017,kabir.iyer17@college.edu,Information Technology,2021,8.61,87.1,87.9,79.9,1,3,0,Capgemini,IT,Pune,10.55,Senior Analyst,2025-05-04,2025
+Reyansh Dutta,IT2021018,reyansh.dutta18@college.edu,Information Technology,2021,9.25,68.8,79.0,69.1,1,2,0,Accenture,IT,Bangalore,13.89,Advanced App Analyst,2025-02-13,2025
+Aarav Ghosh,IT2021019,aarav.ghosh19@college.edu,Information Technology,2021,8.18,89.1,80.1,78.3,3,4,0,IBM,IT,Bangalore,19.0,Software Developer,2024-02-10,2024
+Aadya Mehta,IT2021020,aadya.mehta20@college.edu,Information Technology,2021,7.53,72.8,70.8,73.3,1,2,0,Salesforce,IT,Hyderabad,27.05,MTS Developer,2023-05-03,2023
+Isha Singh,IT2021021,isha.singh21@college.edu,Information Technology,2021,7.43,70.9,69.2,80.0,2,2,0,IBM,IT,Bangalore,14.37,Software Developer,2024-05-17,2024
+Sanjay Raj,IT2021022,sanjay.raj22@college.edu,Information Technology,2021,8.61,89.3,87.8,84.0,2,2,0,Cognizant,IT,Chennai,12.5,Programmer Analyst,2025-01-15,2025
+Sunita Chatterjee,IT2021023,sunita.chatterjee23@college.edu,Information Technology,2021,8.57,79.9,79.2,82.1,3,3,0,Accenture,IT,Bangalore,15.0,Advanced App Analyst,2023-05-23,2023
+Rahul Sen,IT2021024,rahul.sen24@college.edu,Information Technology,2021,9.56,82.4,70.2,73.9,1,4,0,Capgemini,IT,Pune,12.5,Senior Analyst,2023-01-04,2023
+Sachin Kumar,IT2021025,sachin.kumar25@college.edu,Information Technology,2021,8.17,86.7,83.7,70.7,2,2,0,Zoho,IT,Chennai,14.88,Member Technical Staff,2025-01-03,2025
+Kavita Patel,IT2021026,kavita.patel26@college.edu,Information Technology,2021,8.4,77.8,73.9,79.7,3,2,0,Zoho,IT,Chennai,17.47,Member Technical Staff,2024-01-04,2024
+Ishaan Kumar,IT2021027,ishaan.kumar27@college.edu,Information Technology,2021,7.03,71.4,66.0,73.8,1,2,1,Salesforce,IT,Hyderabad,26.98,MTS Developer,2023-03-07,2023
+Juhi Iyer,IT2021028,juhi.iyer28@college.edu,Information Technology,2021,7.97,73.0,57.7,70.0,3,3,0,Accenture,IT,Bangalore,15.0,Advanced App Analyst,2025-02-14,2025
+Vihaan Bose,IT2021029,vihaan.bose29@college.edu,Information Technology,2021,8.25,73.5,82.9,69.9,2,3,0,Cognizant,IT,Chennai,11.13,Programmer Analyst,2024-04-28,2024
+Arjun Saxena,IT2021030,arjun.saxena30@college.edu,Information Technology,2021,8.52,90.7,82.9,77.7,2,2,0,Capgemini,IT,Pune,12.14,Senior Analyst,2024-03-28,2024
+Krishna Desai,ECE2021031,krishna.desai31@college.edu,Electronics,2021,7.8,83.1,75.3,62.1,1,1,0,Texas Instruments,Core Electronics,Bangalore,21.64,Analog Design Engineer,2025-03-02,2025
+Kabir Roy,ECE2021032,kabir.roy32@college.edu,Electronics,2021,7.26,79.3,73.6,86.1,1,2,0,Texas Instruments,Core Electronics,Bangalore,20.75,Analog Design Engineer,2024-05-26,2024
+Naveen Pillai,ECE2021033,naveen.pillai33@college.edu,Electronics,2021,8.12,80.1,74.9,69.9,1,3,0,Bosch,Core Electronics,Pune,14.12,Automotive Systems Engineer,2024-06-14,2024
+Preethi Jain,ECE2021034,preethi.jain34@college.edu,Electronics,2021,8.01,70.8,72.5,87.0,1,3,0,Intel,Core Electronics,Bangalore,25.35,SoC Design Engineer,2024-05-27,2024
+Aarav Kulkarni,ECE2021035,aarav.kulkarni35@college.edu,Electronics,2021,8.13,84.6,73.7,70.4,1,2,0,Intel,Core Electronics,Bangalore,24.93,SoC Design Engineer,2025-06-06,2025
+Amit Rao,ECE2021036,amit.rao36@college.edu,Electronics,2021,8.08,86.9,82.6,73.6,3,2,0,Texas Instruments,Core Electronics,Bangalore,25.65,Analog Design Engineer,2023-01-02,2023
+Sneha Saxena,ECE2021037,sneha.saxena37@college.edu,Electronics,2021,7.38,69.2,53.2,80.6,1,3,0,Samsung,Core Electronics,Noida,16.35,Embedded Engineer,2024-01-25,2024
+Kabir Patel,ECE2021038,kabir.patel38@college.edu,Electronics,2021,8.55,90.6,86.0,67.6,1,4,0,Qualcomm,Core Electronics,Hyderabad,25.46,Hardware Engineer,2025-06-17,2025
+Monika Roy,ECE2021039,monika.roy39@college.edu,Electronics,2021,7.82,86.6,72.6,81.2,2,2,0,Siemens,Core Electronics,Bangalore,15.47,Firmware Engineer,2023-04-15,2023
+Pooja Iyer,ECE2021040,pooja.iyer40@college.edu,Electronics,2021,8.6,76.0,75.4,66.9,1,2,0,Bosch,Core Electronics,Pune,12.68,Automotive Systems Engineer,2024-03-18,2024
+Shaurya Menon,ECE2021041,shaurya.menon41@college.edu,Electronics,2021,8.7,85.2,86.0,80.5,1,2,0,Samsung,Core Electronics,Noida,17.93,Embedded Engineer,2024-04-13,2024
+Alok Verma,ECE2021042,alok.verma42@college.edu,Electronics,2021,9.04,73.6,71.0,76.6,1,3,0,Samsung,Core Electronics,Noida,19.03,Embedded Engineer,2024-05-08,2024
+Abhishek Reddy,ECE2021043,abhishek.reddy43@college.edu,Electronics,2021,8.18,85.5,75.5,83.6,2,3,0,Samsung,Core Electronics,Noida,20.48,Embedded Engineer,2025-05-01,2025
+Saurabh Mukherjee,ECE2021044,saurabh.mukherjee44@college.edu,Electronics,2021,8.15,78.0,73.6,72.6,1,1,0,Samsung,Core Electronics,Noida,16.66,Embedded Engineer,2024-03-25,2024
+Rishi Desai,ECE2021045,rishi.desai45@college.edu,Electronics,2021,8.32,67.8,65.8,79.3,0,2,0,Texas Instruments,Core Electronics,Bangalore,21.57,Analog Design Engineer,2023-06-02,2023
+Vihaan Iyer,MECH2021046,vihaan.iyer46@college.edu,Mechanical,2021,8.34,80.3,80.4,79.4,2,2,0,Mahindra & Mahindra,Manufacturing,Mumbai,12.82,R&D Engineer,2024-03-06,2024
+Payal Roy,MECH2021047,payal.roy47@college.edu,Mechanical,2021,9.39,80.7,79.4,71.3,1,2,0,Caterpillar,Manufacturing,Bangalore,16.14,Associate Engineer,2025-04-13,2025
+Tanvi Singh,MECH2021048,tanvi.singh48@college.edu,Mechanical,2021,7.2,69.0,67.5,88.4,1,3,1,Larsen & Toubro,Manufacturing,Mumbai,11.07,Graduate Engineer,2024-04-22,2024
+Shreya Singh,MECH2021049,shreya.singh49@college.edu,Mechanical,2021,7.66,76.6,82.2,63.9,0,4,0,BHEL,Manufacturing,Hyderabad,10.01,Engineer Trainee,2024-02-14,2024
+Avani Chopra,MECH2021050,avani.chopra50@college.edu,Mechanical,2021,8.84,79.9,81.0,66.7,1,2,0,BHEL,Manufacturing,Hyderabad,10.66,Engineer Trainee,2024-02-27,2024
+Atharva Desai,MECH2021051,atharva.desai51@college.edu,Mechanical,2021,8.69,77.4,66.0,78.4,1,1,0,Caterpillar,Manufacturing,Bangalore,13.93,Associate Engineer,2024-03-11,2024
+Divya Roy,MECH2021052,divya.roy52@college.edu,Mechanical,2021,8.13,73.9,88.9,77.2,0,3,0,Cummins,Manufacturing,Pune,11.77,Applications Engineer,2024-04-21,2024
+Abhishek Chauhan,MECH2021053,abhishek.chauhan53@college.edu,Mechanical,2021,8.38,76.8,76.7,88.1,1,2,0,Cummins,Manufacturing,Pune,13.12,Applications Engineer,2024-06-18,2024
+Nikhil Banerjee,MECH2021054,nikhil.banerjee54@college.edu,Mechanical,2021,8.14,73.9,71.9,80.1,1,1,0,Larsen & Toubro,Manufacturing,Mumbai,11.24,Graduate Engineer,2024-02-07,2024
+Bhavna Desai,MECH2021055,bhavna.desai55@college.edu,Mechanical,2021,7.99,61.7,54.1,75.0,0,2,0,Mahindra & Mahindra,Manufacturing,Mumbai,9.3,R&D Engineer,2024-06-18,2024
+Diya Desai,MECH2021056,diya.desai56@college.edu,Mechanical,2021,8.52,80.4,74.0,94.5,2,3,0,Tata Motors,Manufacturing,Pune,13.5,Design Engineer Trainee,2024-04-16,2024
+Manish Das,CIVIL2021057,manish.das57@college.edu,Civil,2021,8.39,81.2,86.6,72.7,2,2,0,L&T Construction,Infrastructure,Chennai,11.85,Civil Site Engineer,2024-02-05,2024
+Yash Kulkarni,CIVIL2021058,yash.kulkarni58@college.edu,Civil,2021,8.75,82.9,74.1,73.0,1,3,0,Gammon India,Infrastructure,Mumbai,9.47,Site Supervisor,2025-03-28,2025
+Rashmi Patel,CIVIL2021059,rashmi.patel59@college.edu,Civil,2021,7.97,85.8,74.9,67.7,3,2,0,Shapoorji Pallonji,Infrastructure,Mumbai,11.83,Planning Engineer,2023-02-06,2023
+Sachin Singh,CIVIL2021060,sachin.singh60@college.edu,Civil,2021,8.7,85.6,80.7,67.6,0,2,0,Afcons Infrastructure,Infrastructure,Delhi,9.68,Design Engineer,2024-06-08,2024
+Pooja Mukherjee,CIVIL2021061,pooja.mukherjee61@college.edu,Civil,2021,7.44,64.2,54.4,80.5,2,4,1,L&T Construction,Infrastructure,Chennai,10.8,Civil Site Engineer,2025-05-24,2025
+Yash Shah,CIVIL2021062,yash.shah62@college.edu,Civil,2021,7.57,79.0,74.6,83.7,1,2,0,Tata Projects,Infrastructure,Hyderabad,9.29,Project Engineer,2023-04-24,2023
+Preethi Roy,CIVIL2021063,preethi.roy63@college.edu,Civil,2021,8.3,81.7,92.6,72.4,1,4,0,Afcons Infrastructure,Infrastructure,Delhi,11.36,Design Engineer,2025-02-16,2025
+Mayank Chauhan,CIVIL2021064,mayank.chauhan64@college.edu,Civil,2021,8.68,78.5,68.0,70.2,1,1,0,Afcons Infrastructure,Infrastructure,Delhi,10.02,Design Engineer,2024-01-28,2024
+Navya Das,CIVIL2021065,navya.das65@college.edu,Civil,2021,7.6,80.3,74.6,69.1,2,1,0,L&T Construction,Infrastructure,Chennai,10.33,Civil Site Engineer,2024-04-28,2024
+Shalini Sharma,CIVIL2021066,shalini.sharma66@college.edu,Civil,2021,7.82,71.1,65.2,78.7,1,3,0,Tata Projects,Infrastructure,Hyderabad,11.57,Project Engineer,2024-05-05,2024
+Suresh Chauhan,CIVIL2021067,suresh.chauhan67@college.edu,Civil,2021,8.89,76.4,84.1,78.0,2,3,0,Afcons Infrastructure,Infrastructure,Delhi,12.83,Design Engineer,2024-01-08,2024
+Rudra Bhatia,EEE2021068,rudra.bhatia68@college.edu,Electrical,2021,9.26,79.6,86.8,91.3,1,3,0,Havells,Manufacturing,Noida,12.32,Product Engineer,2025-02-15,2025
+Sachin Kumar,EEE2021069,sachin.kumar69@college.edu,Electrical,2021,7.12,84.0,67.6,75.1,2,2,0,Havells,Manufacturing,Noida,10.61,Product Engineer,2025-03-27,2025
+Aarav Shah,EEE2021070,aarav.shah70@college.edu,Electrical,2021,8.1,67.0,56.0,70.3,2,2,0,Havells,Manufacturing,Noida,11.34,Product Engineer,2024-05-13,2024
+Harsh Mishra,EEE2021071,harsh.mishra71@college.edu,Electrical,2021,9.64,71.4,69.9,83.8,2,2,0,Alstom,Power Systems,Chennai,14.5,Electrical Design Engineer,2024-04-13,2024
+Amit Kumar,EEE2021072,amit.kumar72@college.edu,Electrical,2021,8.11,78.4,67.1,75.8,2,3,0,Havells,Manufacturing,Noida,11.13,Product Engineer,2025-01-24,2025
+Pari Yadav,EEE2021073,pari.yadav73@college.edu,Electrical,2021,9.58,72.0,80.9,82.3,1,3,0,Havells,Manufacturing,Noida,12.09,Product Engineer,2025-06-28,2025
+Naveen Ghosh,EEE2021074,naveen.ghosh74@college.edu,Electrical,2021,9.24,79.9,84.1,70.0,1,3,0,ABB,Power Systems,Bangalore,15.5,Control Systems Engineer,2025-02-24,2025
+Atharva Patel,EEE2021075,atharva.patel75@college.edu,Electrical,2021,9.47,81.8,78.9,72.5,1,2,0,Schneider Electric,Power Systems,Bangalore,12.91,Power Systems Engineer,2025-03-12,2025
+Shreya Patel,EEE2021076,shreya.patel76@college.edu,Electrical,2021,8.83,86.8,73.4,70.3,1,1,0,Havells,Manufacturing,Noida,10.66,Product Engineer,2024-05-05,2024
+Prisha Bhatia,EEE2021077,prisha.bhatia77@college.edu,Electrical,2021,7.8,72.2,62.7,61.2,1,2,0,L&T Power,Power Systems,Vadodara,8.96,Junior Engineer,2024-03-19,2024
+Rahul Patel,EEE2021078,rahul.patel78@college.edu,Electrical,2021,8.02,71.9,61.3,98.0,2,1,0,Havells,Manufacturing,Noida,11.45,Product Engineer,2024-06-10,2024
+Aditya Jain,CHEM2021079,aditya.jain79@college.edu,Chemical,2021,8.16,86.2,79.7,63.8,0,3,0,Asian Paints,Chemicals,Mumbai,13.72,Production Engineer,2025-02-20,2025
+Aparna Reddy,CHEM2021080,aparna.reddy80@college.edu,Chemical,2021,7.66,70.5,63.6,64.5,2,3,0,Reliance Industries,Petrochemicals,Jamnagar,15.49,Process Engineer,2024-03-26,2024
+Manish Gupta,CHEM2021081,manish.gupta81@college.edu,Chemical,2021,7.3,70.9,73.8,79.6,2,2,0,Hindustan Petroleum,Petrochemicals,Visakhapatnam,13.93,Process Trainee,2024-05-09,2024
+Rhea Raj,CHEM2021082,rhea.raj82@college.edu,Chemical,2021,9.74,76.7,80.4,74.6,2,3,0,Asian Paints,Chemicals,Mumbai,18.0,Production Engineer,2023-02-28,2023
+Sunil Jain,CHEM2021083,sunil.jain83@college.edu,Chemical,2021,9.54,81.2,71.0,86.6,0,2,0,Asian Paints,Chemicals,Mumbai,14.19,Production Engineer,2024-03-19,2024
+Rishi Pandey,CHEM2021084,rishi.pandey84@college.edu,Chemical,2021,8.7,83.2,95.6,78.6,1,4,0,Tata Chemicals,Chemicals,Mumbai,13.16,Operations Engineer,2024-04-23,2024
+Rahul Yadav,CHEM2021085,rahul.yadav85@college.edu,Chemical,2021,8.46,80.8,99.0,82.1,0,2,0,Hindustan Petroleum,Petrochemicals,Visakhapatnam,10.45,Process Trainee,2024-06-24,2024
+Garima Dutta,CHEM2021086,garima.dutta86@college.edu,Chemical,2021,7.29,80.3,82.4,82.8,0,2,0,BASF,Chemicals,Navi Mumbai,8.7,R&D Associate,2024-04-15,2024
+Rohan Pandey,CHEM2021087,rohan.pandey87@college.edu,Chemical,2021,9.16,87.4,66.8,69.9,1,2,0,Tata Chemicals,Chemicals,Mumbai,13.57,Operations Engineer,2025-04-03,2025
+Amit Tiwari,CHEM2021088,amit.tiwari88@college.edu,Chemical,2021,7.71,70.7,80.9,77.9,1,1,0,Hindustan Petroleum,Petrochemicals,Visakhapatnam,10.84,Process Trainee,2025-05-07,2025
+Rashmi Tiwari,CHEM2021089,rashmi.tiwari89@college.edu,Chemical,2021,8.5,75.7,75.6,62.1,1,2,0,Tata Chemicals,Chemicals,Mumbai,13.03,Operations Engineer,2024-02-04,2024

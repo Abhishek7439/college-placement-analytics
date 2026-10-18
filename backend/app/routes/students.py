@@ -79,6 +79,12 @@ def create_student():
         department_id=data["department_id"],
         batch_year=data["batch_year"],
         cgpa=data.get("cgpa") or None,
+        technical_score=data.get("technical_score", 70.0),
+        coding_score=data.get("coding_score", 65.0),
+        soft_skills_score=data.get("soft_skills_score", 75.0),
+        internships_count=data.get("internships_count", 1),
+        projects_count=data.get("projects_count", 2),
+        backlogs_count=data.get("backlogs_count", 0),
         status=data.get("status", "unplaced"),
     )
     db.session.add(student)
@@ -97,7 +103,11 @@ def update_student(student_id):
         if Student.query.filter(Student.email == data["email"], Student.id != student_id).first():
             return jsonify({"error": "Email already in use"}), 409
 
-    for field in ["name", "email", "department_id", "batch_year", "cgpa", "status"]:
+    for field in [
+        "name", "email", "department_id", "batch_year", "cgpa", "status",
+        "technical_score", "coding_score", "soft_skills_score",
+        "internships_count", "projects_count", "backlogs_count"
+    ]:
         if field in data:
             setattr(student, field, data[field] or None if field == "cgpa" else data[field])
 

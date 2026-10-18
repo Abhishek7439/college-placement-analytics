@@ -77,4 +77,16 @@ export const generateReport = (data) => api.post("/reports/generate", data);
 export const downloadReport = (id) =>
   api.get(`/reports/${id}/download`, { responseType: "blob" });
 
+// ── MFDA Analytics Suite ───────────────────────────────────────────────────
+export const getMFDADescriptiveLinearAlgebra = () => api.get("/mfda/descriptive-linear-algebra");
+export const getMFDABayes = (params) => api.get("/mfda/probability-bayes", { params });
+export const calculateMFDABayes = (data) => api.post("/mfda/probability-bayes", data);
+export const getMFDADistributions = () => api.get("/mfda/distributions");
+export const getMFDASamplingCLT = (params) => api.get("/mfda/sampling-clt", { params });
+export const getMFDAEstimation = () => api.get("/mfda/estimation");
+export const getMFDARegression = () => api.get("/mfda/regression");
+export const predictStudentPlacement = (data) => api.post("/mfda/predict", data);
+export const getMFDAHypothesisTesting = (params) => api.get("/mfda/hypothesis-testing", { params });
+export const getMFDANonParametric = () => api.get("/mfda/non-parametric");
+
 export default api;

@@ -2,13 +2,14 @@ import { NavLink, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 const adminLinks = [
-  { to: "/admin/dashboard",   label: "Dashboard",   icon: "bi-speedometer2"         },
-  { to: "/admin/departments", label: "Departments", icon: "bi-diagram-3"             },
-  { to: "/admin/students",    label: "Students",    icon: "bi-people"                },
-  { to: "/admin/companies",   label: "Companies",   icon: "bi-building"              },
-  { to: "/admin/placements",  label: "Placements",  icon: "bi-briefcase"             },
-  { to: "/admin/upload",      label: "Upload Data", icon: "bi-cloud-upload"          },
-  { to: "/admin/reports",     label: "Reports",     icon: "bi-file-earmark-bar-graph"},
+  { to: "/admin/dashboard",   label: "Dashboard",        icon: "bi-speedometer2" },
+  { to: "/admin/mfda",        label: "Analytics",        icon: "bi-graph-up-arrow" },
+  { to: "/admin/departments", label: "Departments",      icon: "bi-diagram-3" },
+  { to: "/admin/students",    label: "Students",         icon: "bi-people" },
+  { to: "/admin/companies",   label: "Companies",        icon: "bi-building" },
+  { to: "/admin/placements",  label: "Placements",       icon: "bi-briefcase" },
+  { to: "/admin/upload",      label: "Upload Data",      icon: "bi-cloud-upload" },
+  { to: "/admin/reports",     label: "Reports",          icon: "bi-file-earmark-bar-graph" },
 ];
 
 export default function AdminSidebar() {

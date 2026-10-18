@@ -11,7 +11,10 @@ import Toast, { useToast } from "../../components/common/Toast";
 
 const EMPTY_FORM = {
   name: "", roll_number: "", email: "",
-  department_id: "", batch_year: "", cgpa: "", status: "unplaced",
+  department_id: "", batch_year: "", cgpa: "",
+  technical_score: 70, coding_score: 65, soft_skills_score: 75,
+  internships_count: 1, projects_count: 2, backlogs_count: 0,
+  status: "unplaced",
 };
 
 const STATUS_BADGE = {
@@ -85,7 +88,14 @@ export default function Students() {
     setForm({
       name: s.name, roll_number: s.roll_number, email: s.email,
       department_id: s.department_id, batch_year: s.batch_year,
-      cgpa: s.cgpa ?? "", status: s.status,
+      cgpa: s.cgpa ?? "",
+      technical_score: s.technical_score ?? 70,
+      coding_score: s.coding_score ?? 65,
+      soft_skills_score: s.soft_skills_score ?? 75,
+      internships_count: s.internships_count ?? 1,
+      projects_count: s.projects_count ?? 2,
+      backlogs_count: s.backlogs_count ?? 0,
+      status: s.status,
     });
     setEditId(s.id); setFormError(""); setShowModal(true);
   };
@@ -184,14 +194,15 @@ export default function Students() {
                 <thead>
                   <tr>
                     <th>Name</th><th>Roll No.</th><th>Email</th>
-                    <th>Department</th><th>Batch</th><th>CGPA</th>
+                    <th>Department</th><th>CGPA</th><th>Tech Score</th>
+                    <th>Internships</th><th>Projects</th>
                     <th>Status</th><th style={{ width: 90 }}>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {students.length === 0 ? (
                     <tr>
-                      <td colSpan={8} className="text-center text-muted py-4">
+                      <td colSpan={10} className="text-center text-muted py-4">
                         No students found
                       </td>
                     </tr>
@@ -201,8 +212,10 @@ export default function Students() {
                       <td className="text-muted font-monospace">{s.roll_number}</td>
                       <td className="text-muted small">{s.email}</td>
                       <td>{s.department || "—"}</td>
-                      <td>{s.batch_year}</td>
-                      <td>{s.cgpa ?? "—"}</td>
+                      <td><strong>{s.cgpa ?? "—"}</strong></td>
+                      <td><span className="badge bg-primary bg-opacity-25 border border-primary text-primary">{s.technical_score ?? 70}</span></td>
+                      <td>{s.internships_count ?? 0}</td>
+                      <td>{s.projects_count ?? 0}</td>
                       <td>
                         <span className={`badge ${STATUS_BADGE[s.status] ?? "bg-secondary"}`}>
                           {s.status.replace("_", " ")}
@@ -299,6 +312,36 @@ export default function Students() {
                       <option value="placed">Placed</option>
                       <option value="opted_out">Opted Out</option>
                     </select>
+                  </div>
+
+                  <div className="col-12 mt-3 pt-2 border-top">
+                    <div className="text-secondary small fw-bold mb-2">MFDA Academic & Technical Features</div>
+                  </div>
+
+                  <div className="col-md-4">
+                    <label className="form-label">Technical Score (0-100)</label>
+                    <input type="number" min={0} max={100} className="form-control" value={form.technical_score}
+                      onChange={(e) => setForm({ ...form, technical_score: parseFloat(e.target.value) || 0 })} />
+                  </div>
+                  <div className="col-md-4">
+                    <label className="form-label">Coding Score (0-100)</label>
+                    <input type="number" min={0} max={100} className="form-control" value={form.coding_score}
+                      onChange={(e) => setForm({ ...form, coding_score: parseFloat(e.target.value) || 0 })} />
+                  </div>
+                  <div className="col-md-4">
+                    <label className="form-label">Soft Skills (0-100)</label>
+                    <input type="number" min={0} max={100} className="form-control" value={form.soft_skills_score}
+                      onChange={(e) => setForm({ ...form, soft_skills_score: parseFloat(e.target.value) || 0 })} />
+                  </div>
+                  <div className="col-md-6">
+                    <label className="form-label">Internships Count</label>
+                    <input type="number" min={0} max={10} className="form-control" value={form.internships_count}
+                      onChange={(e) => setForm({ ...form, internships_count: parseInt(e.target.value) || 0 })} />
+                  </div>
+                  <div className="col-md-6">
+                    <label className="form-label">Projects Count</label>
+                    <input type="number" min={0} max={15} className="form-control" value={form.projects_count}
+                      onChange={(e) => setForm({ ...form, projects_count: parseInt(e.target.value) || 0 })} />
                   </div>
                 </div>
                 <div className="modal-footer border-0">

@@ -3,9 +3,10 @@ import { useState } from "react";
 
 const publicLinks = [
   { to: "/",            label: "Dashboard",     icon: "bi-speedometer2" },
-  { to: "/departments", label: "Departments",   icon: "bi-diagram-3"    },
-  { to: "/companies",   label: "Companies",     icon: "bi-building"     },
-  { to: "/trends",      label: "Yearly Trends", icon: "bi-graph-up"     },
+  { to: "/mfda",        label: "Analytics",     icon: "bi-graph-up-arrow" },
+  { to: "/departments", label: "Departments",   icon: "bi-diagram-3" },
+  { to: "/companies",   label: "Companies",          icon: "bi-building" },
+  { to: "/trends",      label: "Yearly Trends",      icon: "bi-graph-up" },
 ];
 
 export default function PublicNavbar() {
@@ -47,6 +48,19 @@ export default function PublicNavbar() {
                 >
                   <i className={`bi ${link.icon}`} style={{ fontSize: 13 }} />
                   {link.label}
+                  {link.badge && (
+                    <span
+                      className="badge ms-1 px-2 py-0 text-white"
+                      style={{
+                        background: "linear-gradient(135deg, #ec4899, #8b5cf6)",
+                        fontSize: "9px",
+                        letterSpacing: "0.04em",
+                        boxShadow: "0 0 8px rgba(236,72,153,0.5)",
+                      }}
+                    >
+                      {link.badge}
+                    </span>
+                  )}
                 </Link>
               </li>
             ))}

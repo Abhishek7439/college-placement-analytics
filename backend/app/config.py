@@ -8,17 +8,22 @@ load_dotenv()
 class Config:
     # ── Core ─────────────────────────────────────────────────────────────────
     SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key-change-in-production")
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
+    _db_uri = os.environ.get(
         "DATABASE_URL",
-        "mysql+pymysql://root:password@localhost/smart_placement"
+        "sqlite:///smart_placement.db"
     )
+    SQLALCHEMY_DATABASE_URI = _db_uri
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_ENGINE_OPTIONS = {
-        "pool_pre_ping": True,       # detect stale connections
-        "pool_recycle": 1800,        # recycle connections every 30 min
-        "pool_size": 10,
-        "max_overflow": 20,
-    }
+    SQLALCHEMY_ENGINE_OPTIONS = (
+        {}
+        if _db_uri.startswith("sqlite")
+        else {
+            "pool_pre_ping": True,       # detect stale connections
+            "pool_recycle": 1800,        # recycle connections every 30 min
+            "pool_size": 10,
+            "max_overflow": 20,
+        }
+    )
 
     # ── JWT ───────────────────────────────────────────────────────────────────
     JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY", "jwt-dev-secret-change-in-production")
@@ -45,10 +50,14 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_ENGINE_OPTIONS = {
-        "pool_pre_ping": True,
-        "pool_recycle": 300,
-    }
+    SQLALCHEMY_ENGINE_OPTIONS = (
+        {}
+        if Config.SQLALCHEMY_DATABASE_URI.startswith("sqlite")
+        else {
+            "pool_pre_ping": True,
+            "pool_recycle": 300,
+        }
+    )
 
 
 class ProductionConfig(Config):
