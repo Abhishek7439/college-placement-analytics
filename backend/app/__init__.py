@@ -14,10 +14,12 @@ def create_app(config_class=None):
     jwt.init_app(app)
 
     # CORS: use origins from config (env-driven for production)
+    cors_origins = app.config.get("CORS_ORIGINS", ["*"])
+    supports_creds = False if ("*" in cors_origins or cors_origins == ["*"]) else True
     cors.init_app(
         app,
-        resources={r"/api/*": {"origins": app.config["CORS_ORIGINS"]}},
-        supports_credentials=True,
+        resources={r"/api/*": {"origins": cors_origins}},
+        supports_credentials=supports_creds,
     )
     migrate.init_app(app, db)
 

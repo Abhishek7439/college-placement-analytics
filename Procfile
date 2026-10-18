@@ -1,1 +1,1 @@
-web: cd backend && gunicorn wsgi:app
+web: cd backend && gunicorn wsgi:app --bind 0.0.0.0:$PORT

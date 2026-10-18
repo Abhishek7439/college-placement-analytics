@@ -55,8 +55,12 @@ def seed(reset=False):
 
         # 3. Sample Placements Data
         if Placement.query.count() == 0:
-            csv_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "sample_data.csv"))
-            if os.path.exists(csv_path):
+            csv_candidates = [
+                os.path.abspath(os.path.join(os.path.dirname(__file__), "sample_data.csv")),
+                os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "sample_data.csv")),
+            ]
+            csv_path = next((p for p in csv_candidates if os.path.exists(p)), None)
+            if csv_path:
                 print(f"Importing sample data from {csv_path}...")
                 res = process_file(csv_path, "csv")
                 print(f"Sample data loaded: {res['stats']['inserted']} records inserted.")
