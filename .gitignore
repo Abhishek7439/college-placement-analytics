@@ -14,9 +14,10 @@ venv/
 env/
 ENV/
 *.egg-info/
-dist/
+backend/dist/
 build/
 *.egg
+!frontend/dist/
 
 # ── Uploads / generated reports (runtime data) ────────────────────────────────
 backend/uploads/*
@@ -30,7 +31,6 @@ instance/
 # ── Node / Frontend ───────────────────────────────────────────────────────────
 node_modules/
 frontend/node_modules/
-frontend/dist/
 frontend/.cache/
 frontend/build/
 

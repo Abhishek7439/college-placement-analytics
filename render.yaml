@@ -4,9 +4,11 @@ services:
     env: python
     region: oregon
     plan: free
-    buildCommand: "npm --prefix frontend install && npm --prefix frontend run build && pip install -r backend/requirements.txt && cd backend && python seed.py"
-    startCommand: "cd backend && gunicorn wsgi:app"
+    buildCommand: "pip install -r backend/requirements.txt && cd backend && python seed.py"
+    startCommand: "cd backend && gunicorn wsgi:app --bind 0.0.0.0:$PORT"
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
       - key: FLASK_ENV
         value: production
       - key: SECRET_KEY
