@@ -2,15 +2,27 @@
 
 <div align="center">
 
-[![Live Application](https://img.shields.io/badge/🌐_Live_Demo-college--placement--mfda.onrender.com-00C7B7?style=for-the-badge&logo=render&logoColor=white)](https://college-placement-mfda.onrender.com)
+[![Live Application](https://img.shields.io/badge/🌐_Full_Application-college--placement--mfda.onrender.com-00C7B7?style=for-the-badge&logo=render&logoColor=white)](https://college-placement-mfda.onrender.com)
+[![Frontend CDN](https://img.shields.io/badge/⚡_Frontend_CDN-frontend--gilt--one--54.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://frontend-gilt-one-54.vercel.app)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Abhishek7439%2Fcollege--placement--analytics-181717?style=for-the-badge&logo=github)](https://github.com/Abhishek7439/college-placement-analytics)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![React 18](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 
 </div>
 
-> 🚀 **Live Production URL:** [https://college-placement-mfda.onrender.com](https://college-placement-mfda.onrender.com)  
-> 🔑 **Demo Admin Credentials:** Username: `admin` &bull; Password: `Admin@1234`
+---
+
+### 🌐 Live Public Deployments
+
+| Component | Platform | Live URL | Status | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **Full Application** | **Render** | **[college-placement-mfda.onrender.com](https://college-placement-mfda.onrender.com)** | 🟢 **Live** | **All-in-one:** React SPA + Flask API + SQLite DB |
+| **Frontend SPA** | **Vercel** | **[frontend-gilt-one-54.vercel.app](https://frontend-gilt-one-54.vercel.app)** | 🟢 **Live** | Global edge-cached React frontend |
+| **Backend REST API** | **Render** | **[college-placement-mfda.onrender.com/api](https://college-placement-mfda.onrender.com/api)** | 🟢 **Live** | Endpoints for analytics, auth, MFDA calculations |
+
+> 🔑 **Demo Admin Credentials:**  
+> - **Username:** `admin`  
+> - **Password:** `Admin@1234`
 
 A full-stack, enterprise-grade web application for campus placement intelligence, predictive modeling, and rigorous statistical analysis — powered by **Mathematical Foundations of Data Analytics (MFDA)**, machine learning inference, interactive dashboards, bulk CSV/XLSX imports, and automated PDF reporting.
 
