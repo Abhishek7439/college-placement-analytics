@@ -4,11 +4,13 @@ services:
     env: python
     region: oregon
     plan: free
-    buildCommand: "pip install --upgrade pip && pip install -r backend/requirements.txt && cd backend && python seed.py"
-    startCommand: "cd backend && gunicorn wsgi:app --bind 0.0.0.0:$PORT"
+    buildCommand: "cd frontend && npm install && npm run build && cd .. && pip install --upgrade pip && pip install -r backend/requirements.txt && cd backend && python seed.py"
+    startCommand: "cd backend && gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120"
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
+      - key: NODE_VERSION
+        value: 20.18.0
       - key: FLASK_ENV
         value: production
       - key: SECRET_KEY
@@ -19,3 +21,5 @@ services:
         value: sqlite:///smart_placement.db
       - key: CORS_ORIGINS
         value: "*"
+      - key: VITE_API_URL
+        value: "/api"
