@@ -34,19 +34,39 @@ export default function Reports() {
     }
   };
 
+  const [downloadingId, setDownloadingId] = useState(null);
+
   const handleDownload = async (id, title) => {
+    setDownloadingId(id);
     try {
       const res = await downloadReport(id);
-      const url = window.URL.createObjectURL(new Blob([res.data]));
+      const blob = new Blob([res.data], { type: "application/pdf" });
+      const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `${title.replace(/\s+/g, "_")}.pdf`;
+      const safeTitle = (title || "placement_report").replace(/\s+/g, "_");
+      a.download = safeTitle.endsWith(".pdf") ? safeTitle : `${safeTitle}.pdf`;
+      document.body.appendChild(a);
       a.click();
+      document.body.removeChild(a);
       window.URL.revokeObjectURL(url);
-    } catch {
-      alert("Download failed.");
+    } catch (err) {
+      console.error("Download error:", err);
+      let errMsg = "Download failed. The report file may no longer be available. Please generate a new report.";
+      if (err.response?.data instanceof Blob) {
+        try {
+          const txt = await err.response.data.text();
+          const json = JSON.parse(txt);
+          if (json.error) errMsg = json.error;
+        } catch {}
+      }
+      alert(errMsg);
+      fetchReports();
+    } finally {
+      setDownloadingId(null);
     }
   };
+
 
   return (
     <div style={{ padding: "28px 32px" }}>
@@ -201,9 +221,19 @@ export default function Reports() {
                             <button
                               className="btn btn-sm btn-outline-primary d-flex align-items-center gap-1"
                               onClick={() => handleDownload(r.id, r.title)}
+                              disabled={downloadingId === r.id}
                             >
-                              <i className="bi bi-download" />
-                              PDF
+                              {downloadingId === r.id ? (
+                                <>
+                                  <span className="spinner-border spinner-border-sm" role="status" style={{ width: 12, height: 12 }} />
+                                  <span>Downloading...</span>
+                                </>
+                              ) : (
+                                <>
+                                  <i className="bi bi-download" />
+                                  <span>PDF</span>
+                                </>
+                              )}
                             </button>
                           </td>
                         </tr>
