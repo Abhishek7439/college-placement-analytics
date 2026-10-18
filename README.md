@@ -1,6 +1,64 @@
-# 🎓 College Placement Analytics & Management System
+# 🎓 College Placement Analytics & MFDA Intelligence Suite
 
-A full-stack web application for managing, tracking, and visualizing campus placement data — with bulk CSV/XLSX imports, live analytics dashboards, PDF report generation, and AI-driven insights.
+A full-stack, enterprise-grade web application for campus placement intelligence, predictive modeling, and rigorous statistical analysis — powered by **Mathematical Foundations of Data Analytics (MFDA)**, machine learning inference, interactive dashboards, bulk CSV/XLSX imports, and automated PDF reporting.
+
+---
+
+### 📸 System Preview
+
+<div align="center">
+
+| 📊 **MFDA Analytics Lab** | 🤖 **AI Placement & Salary Predictor** | 🧪 **Hypothesis Testing Suite** |
+| :---: | :---: | :---: |
+| <img src="docs/images/dashboard_analytics.jpg" width="280" alt="MFDA Analytics Lab" style="border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);"/> | <img src="docs/images/placement_predictor.jpg" width="280" alt="AI Placement Predictor" style="border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);"/> | <img src="docs/images/statistical_hypothesis.jpg" width="280" alt="Hypothesis Testing Suite" style="border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);"/> |
+
+</div>
+
+---
+
+## 🏗️ Architecture & Analytical Pipeline
+
+```mermaid
+flowchart TD
+    subgraph Client["🖥️ Frontend (React 18 + Vite)"]
+        UI["Modern Responsive UI\nBootstrap 5 & Glassmorphism"]
+        Charts["Interactive Visualizations\nChart.js 4 Real-time Graphs"]
+        Lab["MFDA Analytics Lab\nPCA 2D Cluster & Distributions"]
+        Predictor["Predictive AI Studio\nSalary & Placement Likelihood"]
+    end
+
+    subgraph Server["⚙️ Backend (Python 3.11 + Flask API)"]
+        Routes["RESTful Blueprints\n(/api/mfda, /api/analytics, /api/students)"]
+        Auth["JWT & bcrypt\nRole-Based Access Control"]
+        PDF["ReportLab Engine\nAutomated Audit Reports"]
+        
+        subgraph MFDA["📐 MFDA Statistical & ML Engine"]
+            PCA["Linear Algebra & PCA\n(Eigenvalues / Covariance / 2D Projection)"]
+            Dist["Probability Distributions\n(Gaussian Fitting & CLT Simulation)"]
+            ML["Predictive ML Models\n(Multivariate Linear & Logistic Regression)"]
+            Hypo["Hypothesis Testing\n(ANOVA F-test, 2-Sample t-test, Chi-Square)"]
+        end
+    end
+
+    subgraph Storage["🗄️ Database & Ingestion"]
+        MySQL[("MySQL 8.0\nRelational Schema")]
+        CSV["Bulk Ingestion\nPandas Validation Engine"]
+    end
+
+    UI --> Routes
+    Charts --> Routes
+    Lab --> Routes
+    Predictor --> Routes
+    Routes --> Auth
+    Routes --> MFDA
+    Routes --> PDF
+    MFDA --> PCA
+    MFDA --> Dist
+    MFDA --> ML
+    MFDA --> Hypo
+    Routes --> MySQL
+    CSV --> Routes
+```
 
 ---
 
@@ -13,35 +71,31 @@ A full-stack web application for managing, tracking, and visualizing campus plac
 | **Backend** | Python 3.11+, Flask 3.0, Gunicorn |
 | **Auth** | JWT (Flask-JWT-Extended), bcrypt |
 | **ORM / DB** | SQLAlchemy, Flask-Migrate, MySQL 8.0 |
-| **Data Processing** | Pandas, NumPy, scikit-learn |
+| **Statistical & ML** | SciPy, scikit-learn, NumPy, Pandas |
 | **PDF Reports** | ReportLab |
 | **Deployment** | Docker, Docker Compose, Nginx |
 
 ---
 
-## ✨ Features
+## ✨ Key Features
+
+### 📐 MFDA Statistical & AI Lab
+- **Linear Algebra & Dimensionality Reduction**: Real-time Principal Component Analysis (PCA) projecting high-dimensional student profiles (CGPA, internships, projects, hackathons, backlogs) onto 2D space with variance ratios.
+- **Probability Distributions**: Gaussian fitting on placement packages with theoretical vs. empirical probability density functions (PDF).
+- **Sampling & Central Limit Theorem (CLT)**: Dynamic sample size simulation demonstrating sample mean convergence to Gaussian normality.
+- **Hypothesis Testing**: Automated two-sample t-tests, One-way ANOVA F-tests, Chi-square test of independence, and correlation matrices with exact p-value interpretation.
+- **Predictive AI Engine**: Logistic regression placement probability gauge with feature importance breakdown + multivariate linear regression salary package estimator.
 
 ### 👩‍💼 Admin Portal (JWT Protected)
-- Secure login with bcrypt-hashed passwords
-- Full **CRUD** for Students, Companies, Departments, and Placements
-- **Bulk upload** placement data via CSV / XLSX (Pandas-powered parser with row-level validation)
-- **PDF report generation** — department, company, yearly, and summary reports
-- Upload history tracking with status (`pending / processed / failed`)
+- Secure authentication with bcrypt password hashing
+- Complete **CRUD** management for Students, Companies, Departments, and Placements
+- **Bulk CSV / XLSX parser** with row-by-row validation, anomaly detection, and schema verification
+- **One-click PDF generation** for department summaries, company audits, and placement logs
 
-### 📊 Public Dashboard (No Login Required)
-- Live KPIs — total students, placed, unplaced, opted-out, placement rate
-- Avg / Max / Min / Median package (LPA) with year filter
-- Department-wise analytics with bar + line charts
-- Company-wise analytics and sector distribution (doughnut chart)
-- Year-on-year trends across all placement cycles
+### 📊 Public Dashboard
+- Real-time KPIs: Placement percentage, median/average/highest package (LPA), total offers
+- Department-wise breakdown, sector distribution (IT, FinTech, Core, EdTech), and yearly recruitment trends
 
-### 🤖 AI Insights
-Rule-based plain-English observations generated automatically:
-> *"Excellent placement performance: 84% of students are placed this year."*
-> *"TCS is the top recruiter with 42 hires."*
-> *"Placement count is up by 15 compared to 2023 (78 → 93 in 2024)."*
-
----
 
 ## 🗂️ Project Structure
 
@@ -80,7 +134,7 @@ college-placement-analytics/
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/Ishabharti-og/college-placement-analytics.git
+git clone https://github.com/Abhishek7439/college-placement-analytics.git
 cd college-placement-analytics
 
 # 2. Configure environment
@@ -205,10 +259,18 @@ The schema is in [`backend/schema.sql`](backend/schema.sql) and is automatically
 
 ---
 
+## 👤 Author & Maintainer
+
+**Abhishek Kothe**
+- GitHub: [@Abhishek7439](https://github.com/Abhishek7439)
+- Repository: [college-placement-analytics](https://github.com/Abhishek7439/college-placement-analytics)
+
+---
+
 ## 📄 License
 
 This project is for educational purposes. Feel free to fork and extend.
 
 ---
 
-<p align="center">College Placement Analytics — A professional placement management system</p>
+<p align="center">College Placement Analytics & MFDA Intelligence Suite — Developed by Abhishek Kothe</p>
